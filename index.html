@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Georgiy Seibel</title>
+<meta name="description" content="I build companies with people worth knowing. Marketing, AI, and building from zero." />
+
+<!-- Favicon (inline, no extra file needed) -->
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2064%2064%22%3E%3Crect%20x%3D%223%22%20y%3D%223%22%20width%3D%2258%22%20height%3D%2258%22%20rx%3D%2216%22%20fill%3D%22%23ffffff%22%20stroke%3D%22%230c0c0d%22%20stroke-width%3D%224%22%2F%3E%3Ctext%20x%3D%2232%22%20y%3D%2234%22%20font-family%3D%22Arial%2CHelvetica%2Csans-serif%22%20font-weight%3D%22800%22%20font-size%3D%2229%22%20letter-spacing%3D%22-1%22%20fill%3D%22%230c0c0d%22%20text-anchor%3D%22middle%22%20dominant-baseline%3D%22central%22%3EGS%3C%2Ftext%3E%3C%2Fsvg%3E" />
+
+<!-- Social share preview (Open Graph + Twitter). Swap the domain below for your own. -->
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Georgiy Seibel" />
+<meta property="og:description" content="I build companies with people worth knowing. Marketing, AI, and building from zero." />
+<meta property="og:url" content="https://georgiyseibel.com/" />
+<meta property="og:image" content="https://georgiyseibel.com/og-image.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="Georgiy Seibel — I build companies with people worth knowing." />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Georgiy Seibel" />
+<meta name="twitter:description" content="I build companies with people worth knowing." />
+<meta name="twitter:image" content="https://georgiyseibel.com/og-image.png" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Hanken+Grotesk:wght@400;500;600&display=swap" rel="stylesheet" />
+
+<style>
+  :root{
+    --bg: #ffffff;
+    --ink: #0c0c0d;
+    --ink-soft: #5b5b60;
+    --ink-faint: #9a9aa0;
+    --line: rgba(12,12,13,.09);
+    --line-strong: rgba(12,12,13,.16);
+    --card: #ffffff;
+    --field: #f5f5f3;
+    --radius: 15px;
+    --shadow-sm: 0 1px 2px rgba(12,12,13,.05), 0 3px 10px rgba(12,12,13,.04);
+    --shadow-md: 0 2px 6px rgba(12,12,13,.07), 0 14px 34px rgba(12,12,13,.09);
+    --display: "Bricolage Grotesque", sans-serif;
+    --body: "Hanken Grotesk", sans-serif;
+  }
+
+  *{ box-sizing:border-box; margin:0; padding:0; }
+
+  html{ -webkit-text-size-adjust:100%; }
+
+  body{
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--body);
+    min-height:100svh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding: 56px 24px;
+    line-height:1.5;
+    -webkit-font-smoothing:antialiased;
+    text-rendering:optimizeLegibility;
+    position:relative;
+    overflow-x:hidden;
+  }
+
+  /* soft light + grain for depth on the white field */
+  body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    background:
+      radial-gradient(120% 80% at 50% -10%, rgba(12,12,13,.045), transparent 60%),
+      radial-gradient(80% 60% at 50% 120%, rgba(12,12,13,.03), transparent 55%);
+    pointer-events:none;
+    z-index:0;
+  }
+  body::after{
+    content:"";
+    position:fixed;
+    inset:0;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    opacity:.035;
+    mix-blend-mode:multiply;
+    pointer-events:none;
+    z-index:0;
+  }
+
+  .wrap{
+    position:relative;
+    z-index:1;
+    width:100%;
+    max-width:600px;
+    text-align:center;
+  }
+
+  /* monogram mark */
+  .mark{
+    width:62px;
+    height:62px;
+    margin:0 auto 38px;
+    border:1.5px solid var(--ink);
+    border-radius:17px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-family:var(--display);
+    font-weight:800;
+    font-size:23px;
+    letter-spacing:-.02em;
+    line-height:1;
+    color:var(--ink);
+    transition:transform .5s cubic-bezier(.2,.8,.2,1), box-shadow .5s ease;
+  }
+  .mark:hover{ transform:rotate(-4deg) scale(1.05); box-shadow:var(--shadow-md); }
+
+  h1{
+    font-family:var(--display);
+    font-weight:800;
+    font-size:clamp(40px, 11.5vw, 66px);
+    line-height:.99;
+    letter-spacing:-.035em;
+    color:var(--ink);
+    margin-bottom:30px;
+    text-wrap:balance;
+  }
+  h1 em{ font-style:normal; }
+
+  .socials{
+    display:flex;
+    flex-wrap:wrap;
+    gap:11px;
+    justify-content:center;
+    margin-bottom:34px;
+  }
+  .pill{
+    display:inline-flex;
+    align-items:center;
+    gap:11px;
+    padding:11px 19px 11px 14px;
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:999px;
+    text-decoration:none;
+    color:var(--ink);
+    font-family:var(--body);
+    font-weight:600;
+    font-size:16.5px;
+    letter-spacing:-.01em;
+    box-shadow:var(--shadow-sm);
+    transition:transform .28s cubic-bezier(.2,.8,.2,1), box-shadow .28s ease, border-color .28s ease;
+  }
+  .pill:hover{
+    transform:translateY(-3px);
+    box-shadow:var(--shadow-md);
+    border-color:var(--line-strong);
+  }
+  .pill .ic{ width:24px; height:24px; flex:none; display:block; }
+  .pill .at{ color:var(--ink-faint); font-weight:500; }
+
+  .lede{
+    font-size:18px;
+    line-height:1.55;
+    color:var(--ink-soft);
+    max-width:430px;
+    margin:0 auto 36px;
+    letter-spacing:-.005em;
+  }
+
+  /* form */
+  form{
+    display:flex;
+    gap:10px;
+    max-width:480px;
+    margin:0 auto;
+  }
+  .field{
+    flex:1;
+    min-width:0;
+    background:var(--field);
+    border:1px solid transparent;
+    border-radius:14px;
+    padding:0 18px;
+    height:58px;
+    font-family:var(--body);
+    font-size:16.5px;
+    color:var(--ink);
+    transition:border-color .2s ease, background .2s ease, box-shadow .2s ease;
+  }
+  .field::placeholder{ color:var(--ink-faint); }
+  .field:focus{
+    outline:none;
+    background:#fff;
+    border-color:var(--ink);
+    box-shadow:0 0 0 4px rgba(12,12,13,.06);
+  }
+  .btn{
+    flex:none;
+    height:58px;
+    padding:0 26px;
+    border:none;
+    border-radius:14px;
+    background:var(--ink);
+    color:#fff;
+    font-family:var(--body);
+    font-weight:600;
+    font-size:16.5px;
+    letter-spacing:-.01em;
+    cursor:pointer;
+    transition:transform .2s cubic-bezier(.2,.8,.2,1), opacity .2s ease, box-shadow .2s ease;
+  }
+  .btn:hover{ transform:translateY(-2px); box-shadow:0 10px 24px rgba(12,12,13,.22); }
+  .btn:active{ transform:translateY(0); }
+
+  .done{
+    max-width:480px;
+    margin:0 auto;
+    height:58px;
+    display:none;
+    align-items:center;
+    justify-content:center;
+    gap:9px;
+    border:1px solid var(--line);
+    border-radius:14px;
+    background:var(--card);
+    color:var(--ink);
+    font-weight:600;
+    font-size:16.5px;
+    letter-spacing:-.01em;
+    box-shadow:var(--shadow-sm);
+  }
+  .done svg{ width:19px; height:19px; }
+
+  footer{
+    margin-top:54px;
+    color:var(--ink-faint);
+    font-size:14.5px;
+    letter-spacing:.01em;
+  }
+
+  /* staggered reveal */
+  .reveal{ opacity:0; transform:translateY(14px); animation:rise .8s cubic-bezier(.2,.8,.2,1) forwards; }
+  @keyframes rise{ to{ opacity:1; transform:none; } }
+  .d1{ animation-delay:.05s } .d2{ animation-delay:.16s } .d3{ animation-delay:.27s }
+  .d4{ animation-delay:.38s } .d5{ animation-delay:.49s } .d6{ animation-delay:.60s }
+
+  @media (prefers-reduced-motion: reduce){
+    .reveal{ animation:none; opacity:1; transform:none; }
+    *{ transition:none !important; }
+  }
+
+  @media (max-width:420px){
+    form{ flex-wrap:wrap; }
+    .btn{ width:100%; }
+  }
+</style>
+</head>
+<body>
+  <main class="wrap">
+    <div class="mark reveal d1" aria-label="Georgiy Seibel">GS</div>
+
+    <h1 class="reveal d2">I build companies with people worth&nbsp;<em>knowing.</em></h1>
+
+    <nav class="socials reveal d3" aria-label="Social links">
+      <a class="pill" href="https://youtube.com/@georgiyseibel" target="_blank" rel="noopener">
+        <svg class="ic" viewBox="0 0 24 24" aria-hidden="true">
+          <rect x="1.5" y="5" width="21" height="14" rx="4.2" fill="#FF0000"/>
+          <path d="M10 9.2v5.6l4.8-2.8z" fill="#fff"/>
+        </svg>
+        <span>@georgiyseibel</span>
+      </a>
+
+      <a class="pill" href="https://instagram.com/georgiyseibel" target="_blank" rel="noopener">
+        <svg class="ic" viewBox="0 0 24 24" aria-hidden="true">
+          <defs>
+            <radialGradient id="ig" cx="30%" cy="105%" r="130%">
+              <stop offset="0%" stop-color="#FFD776"/>
+              <stop offset="25%" stop-color="#F8A03C"/>
+              <stop offset="50%" stop-color="#F02F6E"/>
+              <stop offset="75%" stop-color="#C12CB6"/>
+              <stop offset="100%" stop-color="#6A37D8"/>
+            </radialGradient>
+          </defs>
+          <rect x="2" y="2" width="20" height="20" rx="6" fill="url(#ig)"/>
+          <circle cx="12" cy="12" r="4.6" fill="none" stroke="#fff" stroke-width="1.9"/>
+          <circle cx="17.4" cy="6.6" r="1.25" fill="#fff"/>
+        </svg>
+        <span>@georgiyseibel</span>
+      </a>
+    </nav>
+
+    <p class="lede reveal d4">
+      You're one sign-up away from how I think about marketing, AI, and
+      building from zero. I share everything I learn on YouTube and Instagram.
+    </p>
+
+    <form class="reveal d5" id="signup" novalidate>
+      <input class="field" type="email" id="email" placeholder="name@email.com" autocomplete="email" aria-label="Email address" />
+      <button class="btn" type="submit">Sign up</button>
+    </form>
+
+    <div class="done reveal" id="done" role="status">
+      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <path d="M5 12.5l4.2 4.2L19 7" stroke="#0c0c0d" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      You're in — talk soon.
+    </div>
+
+    <footer class="reveal d6">© 2026 Georgiy Seibel</footer>
+  </main>
+
+<script>
+  // Client-side only. To capture real emails, point this at a backend
+  // (e.g. a Supabase table, Formspree, or your own endpoint).
+  var form = document.getElementById('signup');
+  var done = document.getElementById('done');
+  var email = document.getElementById('email');
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var value = email.value.trim();
+    var valid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
+    if (!valid) {
+      email.focus();
+      email.style.borderColor = '#e0483c';
+      email.style.boxShadow = '0 0 0 4px rgba(224,72,60,.10)';
+      return;
+    }
+    form.style.display = 'none';
+    done.style.display = 'flex';
+  });
+
+  email.addEventListener('input', function () {
+    email.style.borderColor = '';
+    email.style.boxShadow = '';
+  });
+</script>
+</body>
+</html>
