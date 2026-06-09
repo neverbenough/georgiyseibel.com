@@ -304,24 +304,59 @@
   </main>
 
 <script>
-  // Client-side only. To capture real emails, point this at a backend
-  // (e.g. a Supabase table, Formspree, or your own endpoint).
+  var SUPABASE_URL = 'https://wjnjcfxpsukstligthuh.supabase.co';
+  var SUPABASE_KEY = 'sb_publishable_BEJqp8Ek7XkngeOecCzTjA_cjNMt2tO';
+
   var form = document.getElementById('signup');
   var done = document.getElementById('done');
   var email = document.getElementById('email');
+  var btn = form.querySelector('.btn');
 
-  form.addEventListener('submit', function (e) {
+  function flagError(){
+    email.focus();
+    email.style.borderColor = '#e0483c';
+    email.style.boxShadow = '0 0 0 4px rgba(224,72,60,.10)';
+  }
+
+  form.addEventListener('submit', async function (e) {
     e.preventDefault();
     var value = email.value.trim();
     var valid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
-    if (!valid) {
-      email.focus();
-      email.style.borderColor = '#e0483c';
-      email.style.boxShadow = '0 0 0 4px rgba(224,72,60,.10)';
-      return;
+    if (!valid){ flagError(); return; }
+
+    btn.disabled = true;
+    var prevText = btn.textContent;
+    btn.textContent = '…';
+
+    try {
+      var res = await fetch(SUPABASE_URL + '/rest/v1/signups', {
+        method: 'POST',
+        headers: {
+          'apikey': SUPABASE_KEY,
+          'Authorization': 'Bearer ' + SUPABASE_KEY,
+          'Content-Type': 'application/json',
+          'Prefer': 'return=minimal'
+        },
+        body: JSON.stringify({
+          email: value,
+          user_agent: navigator.userAgent,
+          referrer: document.referrer || null
+        })
+      });
+      // 201 = created, 409 = already signed up (treat as success too)
+      if (res.ok || res.status === 409) {
+        form.style.display = 'none';
+        done.style.display = 'flex';
+      } else {
+        btn.disabled = false;
+        btn.textContent = prevText;
+        flagError();
+      }
+    } catch (_) {
+      btn.disabled = false;
+      btn.textContent = prevText;
+      flagError();
     }
-    form.style.display = 'none';
-    done.style.display = 'flex';
   });
 
   email.addEventListener('input', function () {
