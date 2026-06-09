@@ -1,7 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" fill="none" stroke="currentColor" stroke-width="50" stroke-linejoin="miter" stroke-linecap="square">
-  <!-- G: outer square frame with inward leg (open at bottom-left corner area) -->
-  <path d="M 145 660 L 145 145 L 880 145 L 880 880 L 145 880 L 145 660 L 270 660 L 270 330 L 880 330" />
-  <!-- S: three horizontals + two verticals interlocking inside -->
-  <path d="M 270 510 L 745 510 L 745 720 L 880 720" />
-  <path d="M 745 510 L 745 330" />
-</svg>
