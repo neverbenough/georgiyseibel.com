@@ -131,7 +131,9 @@ section{padding-block:64px}
 .about{display:grid;grid-template-columns:240px 1fr;gap:40px;align-items:start}
 @media (max-width:760px){.about{grid-template-columns:1fr}.portrait{max-width:220px}}
 .portrait{aspect-ratio:4/5;width:100%;border-radius:20px;background:var(--soft);border:1px solid var(--line);display:grid;place-items:center}
-.portrait img{width:44%;height:auto;opacity:.9}
+.portrait{display:block}
+.portrait img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 30%;display:block;transition:transform 1.2s var(--ease)}
+.portrait:hover img{transform:scale(1.03)}
 .about-text{display:grid;gap:18px;max-width:62ch;min-width:0}
 .about-text p{color:var(--muted)}
 .areas{display:grid;margin-top:4px}
@@ -276,7 +278,6 @@ main,footer{transition:opacity .18s ease}
 
 /* about detail */
 .portrait{position:relative;overflow:hidden;background:linear-gradient(160deg,#fff 0%,var(--soft) 55%,#eceef2 100%);box-shadow:0 30px 60px -40px rgba(18,20,23,.3)}
-.portrait::after{content:"";position:absolute;left:18px;bottom:18px;width:30px;height:20px;border-radius:3px;background:linear-gradient(var(--red) 33.3%,#fff 33.3% 66.6%,var(--red) 66.6%);box-shadow:0 0 0 1px var(--line)}
 .area{position:relative}
 .area>*{transition:transform .45s var(--ease)}
 .area:hover>*{transform:translateX(12px)}
@@ -426,7 +427,7 @@ footer a{transition:color .25s}footer a:hover{color:var(--red)}
 
   <section id="about">
     <div class="wrap about">
-      <div class="portrait" aria-hidden="true"><img src="logo.png" alt="" width="120" height="120"></div>
+      <div class="portrait"><img src="portrait.jpg" alt="GEORGIY SEIBEL" width="960" height="1200" loading="lazy"></div>
       <div class="about-text">
         <div class="eyebrow" data-i18n="nav.about">Обо мне</div>
         <h2 data-i18n="fullname">GEORGIY SEIBEL</h2>
